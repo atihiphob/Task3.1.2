@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User information</title>
+</head>
+<body>
+<div align="center">
+    <h2>Новый пользователь</h2>
+    <table border="1" cellpadding="10">
+        <thead></thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Second name</th>
+            <th>Username</th>
+
+        </tr>
+        <tbody>
+        <tr>
+            <td th:text="${user.getId()}">Id</td>
+            <td th:text="${user.getName()}">Name</td>
+            <td th:text="${user.getSecondName()}">Surname</td>
+            <td th:text="${user.getUsername()}">E-mail</td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <form sec:authorize="hasAuthority('ROLE_ADMIN')" th:action="@{/admin}">
+        <button type="submit">Return</button>
+    </form>
+    <br/>
+    <a th:href="@{/logout}">Logout</a>
+
+</div>
+</body>
+</html>

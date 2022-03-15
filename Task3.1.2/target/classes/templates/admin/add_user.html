@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set user's feature</title>
+</head>
+<body>
+<div align="center">
+    <h1>Customize new user</h1>
+    <form th:method="POST" th:action="@{/admin/add}" th:object="${user}">
+        <table border="1" cellpadding="15" contenteditable="true">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Roles</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <label for="name"> </label>
+                    <input type="text" th:field="*{name}" id="name"/>
+                </td>
+                <td>
+                    <label for="surName">  </label>
+                    <input type="text" th:field="*{secondName}" id="surName"/>
+                </td>
+                <td>
+                    <label for="username"> </label>
+                    <input type="text" th:field="*{username}" id="username"/>
+                </td>
+                <td>
+                    <label for="password"></label>
+                    <input type="text" th:field="*{password}" id="password"/>
+                </td>
+                <td>
+                    <label>
+                        <select size="2" multiple name="roles" required="required">
+                            <option value="1">ROLE_ADMIN</option>
+                            <option value="2">ROLE_USER</option>
+                        </select>
+                    </label>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+        <input type="submit" value="Submit"/>
+        <button type="submit" form="reset-button">Return</button>
+
+    </form>
+    <form th:action="@{/admin}" id="reset-button" th:type="hidden"></form>
+    <br th:height="20"/>
+    <br/>
+    <form>
+        <a th:href="@{/logout}">Logout</a>
+    </form>
+</div>
+
+
+</body>
+</html>
