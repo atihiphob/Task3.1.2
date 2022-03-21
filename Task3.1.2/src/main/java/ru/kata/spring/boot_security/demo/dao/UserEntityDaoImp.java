@@ -51,12 +51,4 @@ public class UserEntityDaoImp implements UserEntityDao{
     public List<UserEntity> getAllUsers() {
         return entityManager.createQuery("select u from UserEntity u", UserEntity.class).getResultList();
     }
-
-
-//    @Override
-//    public void setRoleToUserById (int user_id, int role_id) {
-//        Query query = entityManager.createQuery("INSERT INTO users_roles (user_id, role_id) values (:user_id, :role_id)");
-//        query.setParameter("user_id", user_id).setParameter("role_id", role_id);
-//        query.executeUpdate();
-//    }
 }

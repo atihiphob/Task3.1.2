@@ -13,5 +13,4 @@ public interface UserEntityDao {
     UserEntity getUserById (int id);
     List<UserEntity> getAllUsers();
     UserEntity getUserEntityByUsername (String username);
-//    void setRoleToUserById (int user_id, int role_id);
 }
